@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Area Converter</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+
+        h1 {
+            color: #120e0e;
+        }
+
+        #areaConverterForm {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 20px;
+            max-width: 300px;
+            margin: 0 auto;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #b1abab;
+            border-radius: 3px;
+        }
+
+        input[type="submit"] {
+            width: 100%;
+            background-color: #369c3a;
+            color: rgb(242, 239, 239);
+            padding: 10px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #3e9b42;
+        }
+
+        #result {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <h1>Yards to Square Feet Converter</h1>
+    <form id="areaConverterForm">
+        <label for="yards">Enter the length in yards:</label>
+        <input type="number" id="yards" step="any" placeholder="Enter yards" required>
+        <input type="submit" value="Convert">
+    </form>
+
+    <div id="result"></div>
+
+    <script>
+        document.getElementById("areaConverterForm").addEventListener("submit", function (event) {
+            event.preventDefault();
+
+         
+            const yards = parseFloat(document.getElementById("yards").value);
+
+           
+            if (!isNaN(yards)) {
+                
+                const squareFeet = yards * 3 * 3;
+
+               
+                document.getElementById("result").innerHTML = `
+                    ${yards} yards is equal to ${squareFeet} square feet.
+                `;
+            } else {
+                
+                document.getElementById("result").innerHTML = "Please enter a valid number for yards.";
+            }
+        });
+    </script>
+</body>
+</html>
